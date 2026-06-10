@@ -218,14 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     position: fixed;
                     bottom: 30px;
                     right: 30px;
-                    background-color: #1F2937;
+                    background-color: #FFFFFF;
+                    border: 1px solid #E5E7EB;
                     border-left: 4px solid #FF5E13;
-                    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-                    border-radius: 4px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                    border-radius: 6px;
                     padding: 16px 24px;
                     z-index: 10000;
                     animation: slideIn 0.3s ease-out;
-                    color: #fff;
+                    color: #111827;
                 }
                 .toast-error {
                     border-left-color: #EF4444;
@@ -297,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background-color: rgba(7, 11, 20, 0.85);
+                    background-color: rgba(0, 0, 0, 0.45);
                     backdrop-filter: blur(8px);
                     display: flex;
                     align-items: center;
@@ -306,13 +307,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     animation: fadeIn 0.3s ease;
                 }
                 .modal-content {
-                    background-color: #111827;
-                    border: 1px solid rgba(255, 94, 19, 0.3);
+                    background-color: #FFFFFF;
+                    border: 1px solid #E5E7EB;
                     border-radius: 16px;
                     padding: 40px;
                     width: 90%;
                     max-width: 500px;
-                    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+                    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
                     animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                     text-align: center;
                 }
@@ -325,12 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     margin-bottom: 15px;
                 }
                 .modal-content h2 {
-                    color: #fff;
+                    color: #111827;
                     font-size: 1.8rem;
                 }
                 .modal-body {
                     margin-bottom: 30px;
-                    color: #9CA3AF;
+                    color: #4B5563;
                     line-height: 1.6;
                 }
                 .modal-body p {
