@@ -1,0 +1,17 @@
+# Windows OS Thumbnail & system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+desktop.ini
+
+# Editor & IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Deployment logs
+deploy_log.txt

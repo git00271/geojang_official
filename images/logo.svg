@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Background Circle & Deep Blue Border -->
+  <circle cx="100" cy="100" r="94" fill="#FFFFFF" stroke="#0F4C81" stroke-width="8"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#0F4C81" stroke-width="1.5" stroke-dasharray="4 2"/>
+  
+  <!-- Curved text path for "FRESH" -->
+  <path id="freshTextPath" d="M 32 100 A 68 68 0 0 1 168 100" fill="none" stroke="none"/>
+  
+  <!-- "FRESH" Text along the path -->
+  <text font-family="'Inter', 'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#0F4C81" letter-spacing="6">
+    <textPath href="#freshTextPath" startOffset="50%" text-anchor="middle">FRESH</textPath>
+  </text>
+  
+  <!-- Wave & Splash (Bottom Area) -->
+  <g>
+    <!-- Water Splashes / Drops -->
+    <circle cx="112" cy="122" r="3.5" fill="#0F4C81"/>
+    <circle cx="126" cy="116" r="3" fill="#0F4C81"/>
+    <circle cx="140" cy="120" r="2.5" fill="#0F4C81"/>
+    <circle cx="152" cy="128" r="2" fill="#0F4C81"/>
+    
+    <circle cx="88" cy="124" r="3" fill="#0F4C81"/>
+    <circle cx="74" cy="120" r="2.5" fill="#0F4C81"/>
+    <circle cx="62" cy="128" r="3.5" fill="#0F4C81"/>
+    <circle cx="48" cy="132" r="2" fill="#0F4C81"/>
+    
+    <!-- Outer Wave Shape -->
+    <path d="M 17 122 C 45 110, 65 140, 100 120 C 135 100, 155 138, 183 122 A 84 84 0 0 1 17 122 Z" fill="#0F4C81"/>
+    
+    <!-- Inner Highlight Wave -->
+    <path d="M 19 135 C 48 122, 70 148, 102 132 C 134 116, 152 144, 181 135 A 84 84 0 0 1 19 135 Z" fill="#1D70B8" opacity="0.8"/>
+    
+    <!-- Fine Wave Lines -->
+    <path d="M 35 145 Q 60 135 85 150 Q 110 165 135 150" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+    <path d="M 65 160 Q 90 152 115 168 Q 140 180 165 160" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Red Seabream Fish (Center) -->
+  <g fill="#E53935">
+    <!-- Fish Tail Fin -->
+    <path d="M 52 110 C 32 100, 24 82, 22 76 C 26 90, 36 98, 48 102 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M 50 114 C 28 120, 18 135, 15 142 C 21 130, 32 122, 46 116 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M 46 108 C 36 104, 28 106, 22 108 C 28 110, 38 111, 44 111 Z" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+    
+    <!-- Fish Body (Jumping pose) -->
+    <path d="M 48 113 C 60 98, 76 76, 112 76 C 142 76, 162 90, 168 102 C 152 104, 134 94, 112 96 C 88 98, 68 108, 48 113 Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+    
+    <!-- Dorsal Fin (Back) -->
+    <path d="M 72 79 C 85 58, 110 55, 134 68 C 128 73, 116 75, 96 75 Z" fill="#C62828" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+    <!-- Dorsal Fin Spikes (Detail lines) -->
+    <path d="M 82 74 L 80 64 M 92 73 L 92 61 M 102 74 L 105 60 M 112 74 L 117 62 M 122 74 L 126 66" stroke="#FFFFFF" stroke-width="1" opacity="0.7"/>
+    
+    <!-- Pectoral Fin (Side) -->
+    <path d="M 94 95 C 104 105, 116 108, 122 104 C 116 99, 104 95, 94 95 Z" fill="#FF5252" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+    
+    <!-- Pelvic Fin (Bottom) -->
+    <path d="M 74 110 C 78 122, 85 125, 88 122 C 84 118, 78 112, 74 110 Z" fill="#FF5252" stroke="#FFFFFF" stroke-width="0.8" stroke-linejoin="round"/>
+    
+    <!-- Gill / Operculum Line -->
+    <path d="M 132 86 C 128 92, 127 98, 130 102" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 136 88 C 133 93, 132 97, 134 100" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.6" stroke-linecap="round"/>
+    
+    <!-- Eye -->
+    <circle cx="146" cy="88" r="4.5" fill="#FFFFFF"/>
+    <circle cx="147" cy="88" r="2" fill="#000000"/>
+    <circle cx="148" cy="86" r="0.8" fill="#FFFFFF"/> <!-- Eye reflection -->
+    
+    <!-- Mouth Line -->
+    <path d="M 166 100 C 160 100, 156 97, 153 96" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+    
+    <!-- Scale Details (Subtle) -->
+    <path d="M 78 92 C 82 90, 84 92, 86 95 M 88 88 C 92 86, 94 88, 96 91 M 100 85 C 104 83, 106 85, 108 88" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"/>
+  </g>
+</svg>
