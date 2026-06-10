@@ -15,7 +15,7 @@ echo 3. 깃허브 서버로 업로드 중 (git push)...
 "C:\Program Files\Git\cmd\git.exe" push origin main >> deploy_log.txt 2>&1
 echo.
 echo ===================================================
-echo  전송 완료! 10초 내로 Netlify 웹사이트에 자동 반영됩니다.
+echo  전송 완료! 약 30초 내로 GitHub Pages 웹사이트에 자동 반영됩니다.
 echo  오류가 발생했다면 폴더 내의 deploy_log.txt를 확인해 주세요.
 echo ===================================================
 pause
