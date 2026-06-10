@@ -218,15 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     position: fixed;
                     bottom: 30px;
                     right: 30px;
-                    background-color: #FFFFFF;
-                    border: 1px solid #E5E7EB;
+                    background-color: #272E3F;
+                    border: 1px solid #374151;
                     border-left: 4px solid #FF5E13;
-                    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
                     border-radius: 6px;
                     padding: 16px 24px;
                     z-index: 10000;
                     animation: slideIn 0.3s ease-out;
-                    color: #111827;
+                    color: #FFFFFF;
                 }
                 .toast-error {
                     border-left-color: #EF4444;
@@ -307,13 +307,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     animation: fadeIn 0.3s ease;
                 }
                 .modal-content {
-                    background-color: #FFFFFF;
-                    border: 1px solid #E5E7EB;
+                    background-color: #272E3F;
+                    border: 1px solid #374151;
                     border-radius: 16px;
                     padding: 40px;
                     width: 90%;
                     max-width: 500px;
-                    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+                    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
                     animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                     text-align: center;
                 }
@@ -326,12 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     margin-bottom: 15px;
                 }
                 .modal-content h2 {
-                    color: #111827;
+                    color: #FFFFFF;
                     font-size: 1.8rem;
                 }
                 .modal-body {
                     margin-bottom: 30px;
-                    color: #4B5563;
+                    color: #D1D5DB;
                     line-height: 1.6;
                 }
                 .modal-body p {
