@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>(주)거장수산 GEO-JANG fishing industry</title>
+    <link>https://geojang.netlify.app</link>
+    <description>숙성회·이자카야 전문 운영 솔루션 | 20년 이상의 전문성</description>
+    <language>ko</language>
+    <pubDate>Wed, 10 Jun 2026 10:17:00 GMT</pubDate>
+    <lastBuildDate>Wed, 10 Jun 2026 10:17:00 GMT</lastBuildDate>
+    <item>
+      <title>전국 제철 활어 직공급 솔루션</title>
+      <link>https://geojang.netlify.app/#services</link>
+      <description>산지 직거래를 통해 신선하고 검증된 제철 수산물을 안정적으로 공급합니다.</description>
+      <pubDate>Wed, 10 Jun 2026 10:17:00 GMT</pubDate>
+      <guid>https://geojang.netlify.app/#services-1</guid>
+    </item>
+    <item>
+      <title>숙성회 전문 기술 교육</title>
+      <link>https://geojang.netlify.app/#services</link>
+      <description>5성급 호텔 일식파트 20년 경력의 전문가가 전수하는 숙성 원리와 실무 노하우 교육입니다.</description>
+      <pubDate>Wed, 10 Jun 2026 10:17:00 GMT</pubDate>
+      <guid>https://geojang.netlify.app/#services-2</guid>
+    </item>
+    <item>
+      <title>초밥·이자카야 메뉴 컨설팅</title>
+      <link>https://geojang.netlify.app/#services</link>
+      <description>트렌디하고 마진율이 높은 메뉴 구성 및 원가 관리, 브랜딩 레시피 교육을 지원합니다.</description>
+      <pubDate>Wed, 10 Jun 2026 10:17:00 GMT</pubDate>
+      <guid>https://geojang.netlify.app/#services-3</guid>
+    </item>
+  </channel>
+</rss>
