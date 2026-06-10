@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B 발주 시스템 모니터링 대시보드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5E13;
+            --primary-light: rgba(255, 94, 19, 0.1);
+            --dark-bg: #070B14;
+            --card-bg: #111827;
+            --border: #1F2937;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --info: #3B82F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-main);
+            padding: 16px;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 480px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        .logo-area svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item.active a, .nav-item a:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-greeting h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+
+        .user-greeting p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .stat-card.success::before {
+            background: var(--success);
+        }
+
+        .stat-card.info::before {
+            background: var(--info);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-val {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+
+        .stat-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Tracker Section */
+        .tracker-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .section-heading {
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shipment-id {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--border);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-line-active {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 66%;
+            height: 2px;
+            background: var(--primary);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            z-index: 2;
+            width: 33.33%;
+        }
+
+        .step-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--dark-bg);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-icon {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 0 10px rgba(255, 94, 19, 0.4);
+        }
+
+        .step.completed .step-icon {
+            border-color: var(--success);
+            background: var(--success);
+            color: #FFFFFF;
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .step-desc {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Order Table */
+        .order-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 8px;
+        }
+
+        .order-table th {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .order-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .order-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .badge-status.preparing {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .badge-status.delivering {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--info);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .badge-status.completed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none; /* Hide sidebar on small screens for mockup simplicity */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-area">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,2A10,10,0,0,0,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2Zm5,11.5c0,1.93-2.24,3.5-5,3.5s-5-1.57-5-3.5a3,3,0,0,1,3-3c.28,0,.56.03.82.09A4.47,4.47,0,0,0,12,12a4.47,4.47,0,0,0,1.18-1.41c.26-.06.54-.09.82-.09A3,3,0,0,1,17,13.5Z"/>
+                </svg>
+                <span>GEO-JANG B2B</span>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item active"><a href="#">📊 대시보드</a></li>
+                <li class="nav-item"><a href="#">🛒 간편 발주</a></li>
+                <li class="nav-item"><a href="#">🚚 배송 조회</a></li>
+                <li class="nav-item"><a href="#">💳 정산 관리</a></li>
+                <li class="nav-item"><a href="#">📈 매출 분석</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="user-greeting">
+                    <h2>인천 요미카야 사장님</h2>
+                    <p>거장수산 B2B 스마트 발주 및 콜드체인 모니터링 시스템입니다.</p>
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    실시간 공급망 연동중
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">이달의 공급 등급</div>
+                    <div class="stat-val">VIP 파트너</div>
+                    <div class="stat-sub">전월 대비 발주량 <span class="highlight-text">↑ 18%</span></div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-label">배송 예정 상품</div>
+                    <div class="stat-val">제철 A급 활어 필렛</div>
+                    <div class="stat-sub">인천 물류센터 출발 <span class="highlight-text">16:30 도착예정</span></div>
+                </div>
+                <div class="stat-card info">
+                    <div class="stat-label">당월 무이자 금융</div>
+                    <div class="stat-val">잔여 2,500,000원</div>
+                    <div class="stat-sub">창업 연계 무이자 신용 한도</div>
+                </div>
+            </div>
+
+            <!-- Shipment Tracker -->
+            <div class="tracker-section">
+                <div class="section-heading">
+                    <span>📦 실시간 물류 추적 (콜드체인 연동)</span>
+                    <span class="shipment-id">No. GJ-20260610-09A</span>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-line-active"></div>
+                    <div class="step completed">
+                        <div class="step-icon">✓</div>
+                        <div class="step-label">거제도 가공 본진</div>
+                        <div class="step-desc">원어 매입 및 필렛 가공</div>
+                    </div>
+                    <div class="step active">
+                        <div class="step-icon">2</div>
+                        <div class="step-label">인천 전진 기지</div>
+                        <div class="step-desc">송도 물류센터 입고 완료</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">3</div>
+                        <div class="step-label">인천 요미카야</div>
+                        <div class="step-desc">매장 앞 직접 배송 대기</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="order-section">
+                <div class="section-heading">
+                    <span>📑 최근 발주 내역</span>
+                </div>
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>발주 코드</th>
+                            <th>발주 품목</th>
+                            <th>수량</th>
+                            <th>금액</th>
+                            <th>상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#GJ-4859</td>
+                            <td>국산 1등급 광어 필렛 (전처리 완료)</td>
+                            <td>8.5 kg</td>
+                            <td>425,000원</td>
+                            <td><span class="badge-status delivering">배송중</span></td>
+                        </tr>
+                        <tr>
+                            <td>#GJ-4842</td>
+                            <td>숙성용 단새우 (박스형)</td>
+                            <td>2 Box</td>
+                            <td>76,000원</td>
+                            <td><span class="badge-status completed">배송완료</span></td>
+                        </tr>
+                        <tr>
+                            <td>#GJ-4819</td>
+                            <td>초밥용 엔가와 (지느러미) 슬라이스</td>
+                            <td>1.5 kg</td>
+                            <td>98,000원</td>
+                            <td><span class="badge-status completed">배송완료</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
