@@ -403,6 +403,7 @@ h1, h2, h3, h4 {
     filter: brightness(0.5) saturate(1.1);
     animation: kenburns 14s ease-in-out infinite;
     transform-origin: center center;
+    will-change: transform;
 }
 
 .hero-overlay {

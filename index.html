@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="images/hero_banner.webp" as="image" type="image/webp" fetchpriority="high">
 </head>
 <body>
 
@@ -47,7 +48,7 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="images/hero_banner.png" alt="거장수산 프리미엄 숙성회" class="hero-img">
+            <img src="images/hero_banner.webp" alt="거장수산 프리미엄 숙성회" class="hero-img" fetchpriority="high">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -104,7 +105,7 @@
 
             <div class="about-grid">
                 <div class="about-img-wrap">
-                    <img src="images/team.jpg" alt="거장수산 전문가 팀" class="about-img">
+                    <img src="images/team.webp" alt="거장수산 전문가 팀" class="about-img" loading="lazy">
                     <div class="about-badge-card">
                         <div class="badge-icon">👥</div>
                         <div class="badge-text">
@@ -245,7 +246,7 @@
                     </div>
                 </div>
                 <div class="browser-content">
-                    <iframe src="extracted_b2b_dashboard.html" title="B2B Dashboard Mockup" class="b2b-iframe"></iframe>
+                    <iframe src="extracted_b2b_dashboard.html" title="B2B Dashboard Mockup" class="b2b-iframe" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -300,7 +301,7 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item" id="portfolio-1">
                         <div class="portfolio-phase">Phase 1</div>
-                        <img src="images/fresh_fish.png" alt="초기 기획 무자본 실험" class="portfolio-img">
+                        <img src="images/fresh_fish.webp" alt="초기 기획 무자본 실험" class="portfolio-img" loading="lazy">
                         <div class="portfolio-info">
                             <h4>초기 기획: 무자본 실험</h4>
                             <p>저예산, 혁신적인 아이디어로 상승폭은 크지 않으나 꾸준한 성장 기록</p>
@@ -308,7 +309,7 @@
                     </div>
                     <div class="portfolio-item" id="portfolio-2">
                         <div class="portfolio-phase">Phase 2</div>
-                        <img src="images/aged_fish.png" alt="배달 역량 집중: 맞춤화 성공" class="portfolio-img">
+                        <img src="images/aged_fish.webp" alt="배달 역량 집중: 맞춤화 성공" class="portfolio-img" loading="lazy">
                         <div class="portfolio-info">
                             <h4>배달 역량 집중: 맞춤화 성공</h4>
                             <p>고객 니즈에 맞춘 배달 상품화: 신선함과 프리미엄 포장 솔루션 완료</p>
@@ -316,7 +317,7 @@
                     </div>
                     <div class="portfolio-item" id="portfolio-3">
                         <div class="portfolio-phase">Phase 3</div>
-                        <img src="images/izakaya.png" alt="홀 매장 프리미엄 메뉴 도입" class="portfolio-img">
+                        <img src="images/izakaya.webp" alt="홀 매장 프리미엄 메뉴 도입" class="portfolio-img" loading="lazy">
                         <div class="portfolio-info">
                             <h4>홀 매장 프리미엄 메뉴 도입</h4>
                             <p>홀 매장의 매력 극대화: 다채로운 구성과 특별한 맛 차별화된 다이닝 경험 선사</p>
