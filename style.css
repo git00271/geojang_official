@@ -554,21 +554,29 @@ h1, h2, h3, h4 {
 
 .about-badge-card {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: rgba(17, 24, 39, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border-light);
-    padding: 16px 24px;
-    border-radius: 12px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.6) 60%, rgba(7, 11, 20, 0) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 20px 30px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     display: flex;
     align-items: center;
     gap: 16px;
-    box-shadow: var(--shadow-premium);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .badge-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    background: rgba(255, 94, 19, 0.15);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .badge-text {
@@ -578,7 +586,9 @@ h1, h2, h3, h4 {
 
 .badge-text strong {
     color: var(--color-text-white);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .badge-text span {
